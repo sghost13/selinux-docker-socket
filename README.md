@@ -27,7 +27,7 @@ This policy is intended to be as minimal and scoped as possible, granting only t
 
 ## Installation
 
-This is only tested to work on fedora systems, but should work on anything rhel as well.
+This bash install script is only tested to work on fedora systems, but should work on anything rhel as well. The Policy itself will work on any SELinux enabled system.
 To build and install the policy module on a fedora system with SELinux enabled:
 
 ```bash
