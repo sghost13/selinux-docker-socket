@@ -4,7 +4,7 @@ This repo contains an SELinux policy module and an install script. The custom po
 
 You should use an intermediary like [docker socket proxy](https://docs.linuxserver.io/images/docker-socket-proxy/) to reduce risk when exposing the Docker socket.
 
-Example volume mount:
+Example volume mount this policy allows:
 
 ```yaml
 volumes:
