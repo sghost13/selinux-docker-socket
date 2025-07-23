@@ -1,8 +1,15 @@
 # SELinux Policy: `docker_unix_socket`
 
-This repository provides a minimal SELinux policy module that allows confined containers (running under the `container_t` domain) to access UNIX domain sockets—such as `/var/run/docker.sock`—by enabling them to connect to and write to mounted socket files.
+This repo contains an SELinux policy module and an install script. The custom policy enables confined containers to mount UNIX domain sockets—such as `/var/run/docker.sock`—into container volumes. This is required for containers like [Traefik](https://doc.traefik.io/traefik/providers/docker/), [Portainer](https://docs.portainer.io/admin/docker/docker-sock), [Watchtower](https://containrrr.dev/watchtower/arguments/#-v-varrundockersockvarrundockersock), [Dozzle](https://dozzle.dev/run/#docker-socket), and similar tools that interact with the Docker API.
 
-It is specifically designed to support mounting the Docker socket into containers like [docker socket proxy](https://docs.linuxserver.io/images/docker-socket-proxy/) and [Traefik](https://doc.traefik.io/traefik/providers/docker/). When mounting the socket, use the `:ro,Z` volume flag to ensure proper SELinux labeling and read-only access inside the container.
+You should use an intermediary like [docker socket proxy](https://docs.linuxserver.io/images/docker-socket-proxy/) to reduce risk when exposing the Docker socket.
+
+Example volume mount:
+
+```yaml
+volumes:
+  - /var/run/docker.sock:/var/run/docker.sock:ro,Z
+```
 
 ## Purpose
 
