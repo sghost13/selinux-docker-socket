@@ -30,3 +30,7 @@ To build and install the policy module on a fedora system with SELinux enabled:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sghost13/selinux-docker-socket/main/install.sh | bash
 ```
+
+## License
+
+This project is licensed under the [MIT No Attribution License (MIT-0)](LICENSE).
