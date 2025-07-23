@@ -1,0 +1,13 @@
+module docker_unix_socket 1.0;
+
+# Policy to grant container access to UNIX sockets under SELinux.
+require {
+    type container_t;
+    type container_var_run_t;
+    type container_runtime_t;
+    class unix_stream_socket connectto;
+    class sock_file write;
+}
+
+allow container_t container_runtime_t:unix_stream_socket connectto;
+allow container_t container_var_run_t:sock_file write;
