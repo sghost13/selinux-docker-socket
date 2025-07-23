@@ -24,7 +24,8 @@ This policy is intended to be as minimal and scoped as possible, granting only t
 
 ## Installation
 
-To build and install the policy module on a rhel/fedora system with SELinux enabled:
+This is only tested to work on fedora systems, but should work on anything rhel as well.
+To build and install the policy module on a fedora system with SELinux enabled:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sghost13/selinux-docker-socket/main/install.sh | bash
