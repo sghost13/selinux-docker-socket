@@ -11,6 +11,9 @@ volumes:
   - /var/run/docker.sock:/var/run/docker.sock:ro,Z
 ```
 
+**Note:** This policy allows *any* UNIX domain socket labeled `container_runtime_t` or `container_var_run_t` to be mounted into *any* confined container (`container_t`). It is not limited to the Docker socket.
+
+
 ## Purpose
 
 In systems where SELinux is enforced, direct communication between confined containers and the Docker UNIX socket (`/var/run/docker.sock`) is blocked by default. This policy module:
